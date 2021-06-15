@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main()
+{
+    int litera[26]= {0}, i, l;
+    char sir[100]= "abrxkbassdfirsdqa";
+    for(i=0; i<strlen(sir); i++)
+        if(sir[i] >='a' && sir[i] <='z'){
+            l = sir[i] - 'a';
+            litera[l]++;
+        }
+    for(i=0; i<strlen(sir); i++)
+        if (sir[i] >='A' && sir[i] <='Z') {
+            l = sir[i] - 'A';
+            litera[l]++;
+        }
+    if (strlen(sir) == 0) {
+        printf("Sirul nu contine nicio litera");
+        return 0;
+    }
+    if (strlen(sir) >100) {
+        printf("Sirul este prea lung (>100 litere)");
+        return 0;
+    }
+    printf("Daca sirul contine semne speciale acestea nu vor aparea la numaratoare \n");
+    printf("Daca textul contine diacritice acestea nu vor putea fi citite din cauza codificarii \n");
+    for(i=0; i<26; i++)
+        printf ("In sirul initial litera %c apare de %d ori \n", i + 'A', litera[i]);
+    return 0;
+}
